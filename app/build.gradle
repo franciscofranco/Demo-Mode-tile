@@ -8,7 +8,7 @@ android {
         applicationId "com.franco.demomode"
         minSdkVersion 24
         targetSdkVersion 25
-        versionName "1.0"
+        versionName "1.0.1"
         versionCode getVersionCodeTimestamp()
         archivesBaseName = "DemoModeTile-${android.defaultConfig.versionName}"
     }
@@ -59,7 +59,7 @@ android {
 }
 
 def readKeystoreProperties(def configName) {
-    def propsFile = rootProject.file('../../../keystore.properties')
+    def propsFile = rootProject.file('../../keystore.properties')
 
     if (propsFile.exists()) {
         def props = new Properties()
