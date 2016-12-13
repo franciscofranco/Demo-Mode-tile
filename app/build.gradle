@@ -1,0 +1,83 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.1"
+
+    defaultConfig {
+        applicationId "com.franco.demomode"
+        minSdkVersion 24
+        targetSdkVersion 25
+        versionName "1.0"
+        versionCode getVersionCodeTimestamp()
+        archivesBaseName = "DemoModeTile-${android.defaultConfig.versionName}"
+    }
+
+    signingConfigs {
+        release {
+            readKeystoreProperties('release')
+        }
+
+        debug {
+            readKeystoreProperties('debug')
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
+        checkAllWarnings false
+        disable 'InvalidPackage'
+        tasks.lint.enabled = false
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [vmSafeModeEnabled: "false"]
+        }
+
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            manifestPlaceholders = [vmSafeModeEnabled: "true"]
+        }
+    }
+}
+
+def readKeystoreProperties(def configName) {
+    def propsFile = rootProject.file('../../../keystore.properties')
+
+    if (propsFile.exists()) {
+        def props = new Properties()
+        props.load(new FileInputStream(propsFile))
+        android.signingConfigs[configName].storeFile = file(props['storeFile'])
+        android.signingConfigs[configName].storePassword = props['storePassword']
+        android.signingConfigs[configName].keyAlias = props['keyAlias']
+        android.signingConfigs[configName].keyPassword = props['keyPassword']
+    }
+}
+
+def getVersionCodeTimestamp() {
+    return new Date().format('yyMMddHHmm').toInteger()
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:design:25.0.1'
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+}

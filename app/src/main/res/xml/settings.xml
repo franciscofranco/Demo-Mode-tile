@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <Preference
+        android:summary="https://goo.gl/6eVCjr"
+        android:title="@string/source_code_title">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="https://goo.gl/6eVCjr"
+            />
+    </Preference>
+
+    <PreferenceCategory
+        android:title="@string/permissions">
+
+        <Preference
+            android:key="dump_permission"
+            android:title="@string/dump_permission"/>
+
+        <Preference
+            android:key="write_secure_settings"
+            android:title="@string/write_secure_settings_permission"/>
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/social">
+
+        <Preference
+            android:title="Google+">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://plus.google.com/u/0/+FranciscoFranco1990"/>
+        </Preference>
+
+        <Preference
+            android:title="Twitter">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://twitter.com/franciscof_1990"/>
+        </Preference>
+    </PreferenceCategory>
+</PreferenceScreen>

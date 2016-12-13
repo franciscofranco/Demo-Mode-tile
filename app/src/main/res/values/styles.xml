@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="DemoModeTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:windowBackground">@color/primary</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>
