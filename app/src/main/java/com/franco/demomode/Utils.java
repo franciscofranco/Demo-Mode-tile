@@ -8,10 +8,19 @@ import android.provider.Settings;
 import com.franco.demomode.application.App;
 
 public class Utils {
-    public static final String DEMO_MODE_ON = "sysui_tuner_demo_on";
+    private static final String DEMO_MODE_ALLOWED = "sysui_demo_allowed";
+    private static final String DEMO_MODE_ON = "sysui_tuner_demo_on";
     public static final String MISSING_PERMISSION = "missing_permission";
 
     public static void enableDemoMode() {
+        try {
+            if (Settings.Global.getInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED) == 0) {
+                Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED, 1);
+            }
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+        }
+
         Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ON, 1);
 
         Intent a = new Intent("com.android.systemui.demo");
