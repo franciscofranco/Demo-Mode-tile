@@ -4,8 +4,6 @@
     <string name="permission_request_title">Autorisations</string>
     <string name="dump_permission_msg">Pour que cette application fonctionne, elle a besoin de l\'autorisation \"DUMP\". Malheureusement, cela n\'est possible qu\'à partir d\'un \"shell adb\" depuis votre ordinateur :\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nPour plus de transparence, le code source de cette application est disponible.</string>
     <string name="write_secure_settings_permission_msg">Pour que cette application fonctionne, elle a besoin de l\'autorisation \"WRITE_SECURE_SETTINGS\". Malheureusement, cela n\'est possible qu\'à partir d\'un \"shell adb\" depuis votre ordinateur :\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nPour plus de transparence, le code source de cette application est disponible.</string>
-    <string name="no">Non</string>
-    <string name="ok">OK</string>
     <string name="dump_permission">Autorisation \"DUMP\"</string>
     <string name="write_secure_settings_permission">Autorisation \"WRITE_SECURE_SETTINGS\"</string>
     <string name="not_granted">Non accordée</string>

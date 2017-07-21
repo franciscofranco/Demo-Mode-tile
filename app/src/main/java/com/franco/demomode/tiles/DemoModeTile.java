@@ -19,8 +19,8 @@ public class DemoModeTile extends TileService {
     public void onStartListening() {
         super.onStartListening();
 
-        getQsTile().setState(Utils.isDemoModeOn() ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-        getQsTile().setIcon(Utils.isDemoModeOn() ?
+        getQsTile().setState(Utils.isDemoModeOn(getApplicationContext()) ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        getQsTile().setIcon(Utils.isDemoModeOn(getApplicationContext()) ?
                 Icon.createWithResource(getApplicationContext(), R.drawable.ic_on) :
                 Icon.createWithResource(getApplicationContext(), R.drawable.ic_off));
         getQsTile().updateTile();
@@ -30,7 +30,8 @@ public class DemoModeTile extends TileService {
     public void onClick() {
         super.onClick();
 
-        if (!Utils.isDumpPermissionGranted() || !Utils.isWriteSecureSettingsPermissionGranted()) {
+        if (!Utils.isDumpPermissionGranted(getApplicationContext())
+                || !Utils.isWriteSecureSettingsPermissionGranted(getApplicationContext())) {
             Intent mainActivity = new Intent(getApplicationContext(), MainActivity.class);
             mainActivity.setAction(Utils.MISSING_PERMISSION);
             mainActivity.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -41,13 +42,13 @@ public class DemoModeTile extends TileService {
                 getQsTile().setIcon(Icon.createWithResource(getApplicationContext(), R.drawable.ic_off));
                 getQsTile().updateTile();
 
-                Utils.disableDemoMode();
+                Utils.disableDemoMode(getApplicationContext());
             } else {
                 getQsTile().setState(Tile.STATE_ACTIVE);
                 getQsTile().setIcon(Icon.createWithResource(getApplicationContext(), R.drawable.ic_on));
                 getQsTile().updateTile();
 
-                Utils.enableDemoMode();
+                Utils.enableDemoMode(getApplicationContext());
             }
         }
     }
