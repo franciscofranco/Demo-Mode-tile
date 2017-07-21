@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary">#5DE8D0</color>
+    <!-- TODO: Add primary dark for status bar theming -->
+    <color name="primaryDark">@color/primary</color>
     <color name="accent">#7B1FA2</color>
 </resources>
