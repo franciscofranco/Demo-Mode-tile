@@ -79,8 +79,8 @@ public class MainActivity extends Activity {
         public void onResume() {
             super.onResume();
 
-            dump.setSummary(isDumpPermissionGranted() ? R.string.granted : R.string.not_granted);
-            writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted()
+            dump.setSummary(isDumpPermissionGranted(getContext()) ? R.string.granted : R.string.not_granted);
+            writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted(getContext())
                     ? R.string.granted : R.string.not_granted);
         }
     }
