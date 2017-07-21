@@ -4,8 +4,6 @@
     <string name="permission_request_title">Demo modu blok izni isteği</string>
     <string name="dump_permission_msg">Bu uygulamanın çalışması için DUMP izninin verilmesi gerekiyor. Ne yazık ki, bu yalnızca bilgisayarınızdaki ADB Shell ile mümkündür:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nŞeffaflık için bu uygulamanın kaynak kodu mevcuttur.</string>
     <string name="write_secure_settings_permission_msg">Bu uygulamanın çalışması için WRITE_SECURE_SETTINGS izni verilmesi gerekiyor. Ne yazık ki, bu yalnızca bilgisayarınızdaki ADB Shell ile mümkündür:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nŞeffaflık için bu uygulamanın kaynak kodu mevcuttur.</string>
-    <string name="no">Hayır</string>
-    <string name="ok">EVET</string>
     <string name="dump_permission">android.permission.DUMP</string>
     <string name="write_secure_settings_permission">android.permission.WRITE_SECURE_SETTINGS</string>
     <string name="not_granted">Verilmemiş</string>
