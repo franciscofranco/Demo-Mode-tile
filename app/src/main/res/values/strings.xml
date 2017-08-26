@@ -6,12 +6,14 @@
     <string name="write_secure_settings_permission_msg">For this app to work it needs WRITE_SECURE_SETTINGS permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nFor transparency this app\'s source code is available.</string>
     <string name="no">No</string>
     <string name="ok">OK</string>
-    <string name="dump_permission">android.permission.DUMP</string>
-    <string name="write_secure_settings_permission">android.permission.WRITE_SECURE_SETTINGS</string>
+    <string name="dump_permission">DUMP</string>
+    <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
     <string name="not_granted">Not granted</string>
     <string name="permissions">Permissions</string>
     <string name="granted">Granted</string>
     <string name="social">Follow me</string>
     <string name="source_code_title">Source code</string>
     <string name="permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
+    <string name="demo_mode_allowed_title">Tip!</string>
+    <string name="demo_mode_allowed_message">Make sure you allow demo mode to run by enabling it on Android settings, otherwise this tile might not work</string>
 </resources>

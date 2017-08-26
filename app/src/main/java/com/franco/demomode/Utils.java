@@ -11,21 +11,31 @@ public class Utils {
     private static final String DEMO_MODE_ALLOWED = "sysui_demo_allowed";
     private static final String DEMO_MODE_ON = "sysui_tuner_demo_on";
     public static final String MISSING_PERMISSION = "missing_permission";
+    private static final String CLOCK_SECONDS = "clock_seconds";
+
+    private static boolean isTime24 = false;
 
     public static void enableDemoMode() {
+        if (!isDemoModeAllowed()) {
+            Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED, 1);
+        }
+
+        Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ON, 1);
+
         try {
-            if (Settings.Global.getInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED) == 0) {
-                Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED, 1);
+            if (Settings.System.getInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24) == 24) {
+                Settings.System.putInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24, 12);
+                Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 1);
+                Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 0);
+                isTime24 = true;
             }
         } catch (Settings.SettingNotFoundException e) {
             e.printStackTrace();
         }
 
-        Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ON, 1);
-
         Intent a = new Intent("com.android.systemui.demo");
         a.putExtra("command", "clock");
-        a.putExtra("hhmm", "0700");
+        a.putExtra("hhmm", "0800");
         App.CONTEXT.sendBroadcast(a);
 
         Intent b = new Intent("com.android.systemui.demo");
@@ -40,34 +50,25 @@ public class Utils {
         c.putExtra("datatype", "none");
         c.putExtra("level", "4");
         c.putExtra("fully", "true");
+        c.putExtra("wifi", "show");
+        c.putExtra("fully", "true");
+        c.putExtra("level", "4");
+        c.putExtra("command", "network");
+        c.putExtra("airplane", "hide");
+        c.putExtra("nosim", "hide");
         App.CONTEXT.sendBroadcast(c);
 
         Intent d = new Intent("com.android.systemui.demo");
-        d.putExtra("command", "network");
-        d.putExtra("wifi", "show");
-        d.putExtra("fully", "true");
-        d.putExtra("level", "4");
+        d.putExtra("command", "notifications");
+        d.putExtra("visible", "false");
         App.CONTEXT.sendBroadcast(d);
 
         Intent e = new Intent("com.android.systemui.demo");
-        e.putExtra("command", "network");
-        e.putExtra("airplane", "hide");
+        e.putExtra("command", "status");
+        e.putExtra("bluetooth", "hide");
+        e.putExtra("volume", "hide");
+        e.putExtra("mute", "hide");
         App.CONTEXT.sendBroadcast(e);
-
-        Intent f = new Intent("com.android.systemui.demo");
-        f.putExtra("command", "network");
-        f.putExtra("nosim", "hide");
-        App.CONTEXT.sendBroadcast(f);
-
-        Intent g = new Intent("com.android.systemui.demo");
-        g.putExtra("command", "notifications");
-        g.putExtra("visible", "false");
-        App.CONTEXT.sendBroadcast(g);
-
-        Intent h = new Intent("com.android.systemui.demo");
-        h.putExtra("command", "status");
-        h.putExtra("bluetooth", "hide");
-        App.CONTEXT.sendBroadcast(h);
     }
 
     public static void disableDemoMode() {
@@ -76,13 +77,28 @@ public class Utils {
         Intent enableDemoMode = new Intent("com.android.systemui.demo");
         enableDemoMode.putExtra("command", "exit");
         App.CONTEXT.sendBroadcast(enableDemoMode);
+
+        if (isTime24) {
+            Settings.System.putInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24, 24);
+            Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 1);
+            Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 0);
+            isTime24 = false;
+        }
+    }
+
+    public static boolean isDemoModeAllowed() {
+        try {
+            return Settings.Global.getInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ALLOWED) == 1;
+        } catch (Settings.SettingNotFoundException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public static boolean isDemoModeOn() {
         return Settings.Global.getInt(App.CONTEXT.getContentResolver(),
                 DEMO_MODE_ON, 0) != 0;
     }
-
 
     public static boolean isDumpPermissionGranted() {
         return App.CONTEXT.getPackageManager().checkPermission(Manifest.permission.DUMP, App.CONTEXT.getPackageName())

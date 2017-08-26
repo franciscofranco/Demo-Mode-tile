@@ -1,7 +1,9 @@
 package com.franco.demomode.activities;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Process;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
@@ -16,8 +18,6 @@ import com.franco.demomode.Utils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.franco.demomode.Utils.isDumpPermissionGranted;
-import static com.franco.demomode.Utils.isWriteSecureSettingsPermissionGranted;
 
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.toolbar)
@@ -32,8 +32,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         setActionBar(toolbar);
-
-        getFragmentManager().beginTransaction().replace(R.id.prefs_frame, new SettingsFragment()).commit();
 
         if (getIntent() != null) {
             if (getIntent().getAction() != null) {
@@ -50,6 +48,19 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
+
+        if (!Utils.isDemoModeAllowed()) {
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.demo_mode_allowed_title)
+                    .setMessage(R.string.demo_mode_allowed_message)
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .show();
+        }
     }
 
     public static class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
@@ -58,6 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
         private Preference dump;
         private Preference writeSecureSettings;
+
+        private Thread permissionsPollThread;
+
+        private boolean isDumpPermissionGranted;
+        private boolean isWriteSecureSettingsPermissionGranted;
 
         @Override
         public void onCreate(Bundle savedInstanceState) {
@@ -83,12 +99,73 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        public void onResume() {
-            super.onResume();
+        public void onStart() {
+            super.onStart();
 
-            dump.setSummary(isDumpPermissionGranted() ? R.string.granted : R.string.not_granted);
-            writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted()
+            isDumpPermissionGranted = Utils.isDumpPermissionGranted();
+            isWriteSecureSettingsPermissionGranted = Utils.isWriteSecureSettingsPermissionGranted();
+
+            dump.setSummary(isDumpPermissionGranted ? R.string.granted : R.string.not_granted);
+            writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted
                     ? R.string.granted : R.string.not_granted);
+
+            // there isn't a listener for when these permissions states change, so we have to poll it
+            // Runs in a BG thread so it's ok
+            permissionsPollThread = new Thread(new Runnable() {
+                long lastNow = System.currentTimeMillis();
+
+                @Override
+                public void run() {
+                    Process.setThreadPriority(Process.THREAD_PRIORITY_BACKGROUND);
+
+                    try {
+                        while (permissionsPollThread != null && permissionsPollThread.isAlive()) {
+                            if ((lastNow + 1000) < System.currentTimeMillis()) {
+                                lastNow = System.currentTimeMillis();
+
+                                if (isDumpPermissionGranted != Utils.isDumpPermissionGranted()) {
+                                    isDumpPermissionGranted = Utils.isDumpPermissionGranted();
+
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            dump.setSummary(isDumpPermissionGranted ? R.string.granted : R.string.not_granted);
+                                        }
+                                    });
+                                }
+
+                                if (isWriteSecureSettingsPermissionGranted != Utils.isWriteSecureSettingsPermissionGranted()) {
+                                    isWriteSecureSettingsPermissionGranted = Utils.isWriteSecureSettingsPermissionGranted();
+
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted
+                                                    ? R.string.granted : R.string.not_granted);
+                                        }
+                                    });
+                                }
+                            }
+                        }
+                    } catch (Exception ignored) {
+                        // it's ok to catch the exception here and not treat it properly.
+                        // not doing anything important and the thread object might be null even after the null check
+                        // so fail gracefully and in peace
+                    }
+                }
+            });
+
+            permissionsPollThread.start();
+        }
+
+        @Override
+        public void onStop() {
+            super.onStop();
+
+            if (permissionsPollThread != null && !permissionsPollThread.isInterrupted()) {
+                permissionsPollThread.interrupt();
+                permissionsPollThread = null;
+            }
         }
     }
 }
