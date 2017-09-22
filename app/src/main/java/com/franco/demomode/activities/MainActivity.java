@@ -1,7 +1,6 @@
 package com.franco.demomode.activities;
 
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Process;
 import android.preference.Preference;
@@ -38,12 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 if (getIntent().getAction().equals(Utils.MISSING_PERMISSION)) {
                     final Snackbar snackbar = Snackbar.make(rootLayout,
                             R.string.permissions_need_to_be_granted, Snackbar.LENGTH_INDEFINITE);
-                    snackbar.setAction(R.string.ok, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            snackbar.dismiss();
-                        }
-                    });
+                    snackbar.setAction(R.string.ok, view -> snackbar.dismiss());
                     snackbar.show();
                 }
             }
@@ -53,12 +47,7 @@ public class MainActivity extends AppCompatActivity {
             new AlertDialog.Builder(this)
                     .setTitle(R.string.demo_mode_allowed_title)
                     .setMessage(R.string.demo_mode_allowed_message)
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
+                    .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
                     .show();
         }
     }
@@ -91,8 +80,9 @@ public class MainActivity extends AppCompatActivity {
         public boolean onPreferenceClick(Preference preference) {
             new AlertDialog.Builder(getActivity())
                     .setTitle(R.string.permission_request_title)
-                    .setMessage(preference.getKey().equals(KEY_DUMP)
-                            ? R.string.dump_permission_msg : R.string.write_secure_settings_permission_msg)
+                    .setMessage(preference.getKey().equals(KEY_DUMP) ?
+                            R.string.dump_permission_msg :
+                            R.string.write_secure_settings_permission_msg)
                     .show();
 
             return false;
@@ -126,24 +116,17 @@ public class MainActivity extends AppCompatActivity {
                                 if (isDumpPermissionGranted != Utils.isDumpPermissionGranted()) {
                                     isDumpPermissionGranted = Utils.isDumpPermissionGranted();
 
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            dump.setSummary(isDumpPermissionGranted ? R.string.granted : R.string.not_granted);
-                                        }
-                                    });
+                                    getActivity().runOnUiThread(() ->
+                                            dump.setSummary(isDumpPermissionGranted ?
+                                                    R.string.granted : R.string.not_granted));
                                 }
 
                                 if (isWriteSecureSettingsPermissionGranted != Utils.isWriteSecureSettingsPermissionGranted()) {
                                     isWriteSecureSettingsPermissionGranted = Utils.isWriteSecureSettingsPermissionGranted();
 
-                                    getActivity().runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
+                                    getActivity().runOnUiThread(() ->
                                             writeSecureSettings.setSummary(isWriteSecureSettingsPermissionGranted
-                                                    ? R.string.granted : R.string.not_granted);
-                                        }
-                                    });
+                                            ? R.string.granted : R.string.not_granted));
                                 }
                             }
                         }

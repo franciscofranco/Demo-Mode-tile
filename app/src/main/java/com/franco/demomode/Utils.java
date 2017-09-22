@@ -11,9 +11,6 @@ public class Utils {
     private static final String DEMO_MODE_ALLOWED = "sysui_demo_allowed";
     private static final String DEMO_MODE_ON = "sysui_tuner_demo_on";
     public static final String MISSING_PERMISSION = "missing_permission";
-    private static final String CLOCK_SECONDS = "clock_seconds";
-
-    private static boolean isTime24 = false;
 
     public static void enableDemoMode() {
         if (!isDemoModeAllowed()) {
@@ -22,53 +19,62 @@ public class Utils {
 
         Settings.Global.putInt(App.CONTEXT.getContentResolver(), DEMO_MODE_ON, 1);
 
-        try {
-            if (Settings.System.getInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24) == 24) {
-                Settings.System.putInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24, 12);
-                Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 1);
-                Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 0);
-                isTime24 = true;
-            }
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-        }
+        // clock with the latest release string
+        Intent clock = new Intent("com.android.systemui.demo");
+        clock.putExtra("command", "clock");
+        clock.putExtra("hhmm", "0800");
+        App.CONTEXT.sendBroadcast(clock);
 
-        Intent a = new Intent("com.android.systemui.demo");
-        a.putExtra("command", "clock");
-        a.putExtra("hhmm", "0800");
-        App.CONTEXT.sendBroadcast(a);
+        // battery icon needs to be perfect
+        Intent battery = new Intent("com.android.systemui.demo");
+        battery.putExtra("command", "battery");
+        battery.putExtra("level", "100");
+        battery.putExtra("plugged", "false");
+        App.CONTEXT.sendBroadcast(battery);
 
-        Intent b = new Intent("com.android.systemui.demo");
-        b.putExtra("command", "battery");
-        b.putExtra("level", "100");
-        b.putExtra("plugged", "false");
-        App.CONTEXT.sendBroadcast(b);
+        // signal icon
+        Intent data = new Intent("com.android.systemui.demo");
+        data.putExtra("command", "network");
+        data.putExtra("mobile", "show");
+        data.putExtra("datatype", "hide");
+        data.putExtra("level", "4");
+        App.CONTEXT.sendBroadcast(data);
 
-        Intent c = new Intent("com.android.systemui.demo");
-        c.putExtra("command", "network");
-        c.putExtra("mobile", "show");
-        c.putExtra("datatype", "none");
-        c.putExtra("level", "4");
-        c.putExtra("fully", "true");
-        c.putExtra("wifi", "show");
-        c.putExtra("fully", "true");
-        c.putExtra("level", "4");
-        c.putExtra("command", "network");
-        c.putExtra("airplane", "hide");
-        c.putExtra("nosim", "hide");
-        App.CONTEXT.sendBroadcast(c);
+        // mock sim carrier connection
+        Intent signal = new Intent("com.android.systemui.demo");
+        signal.putExtra("command", "network");
+        signal.putExtra("fully", "true");
+        App.CONTEXT.sendBroadcast(signal);
 
-        Intent d = new Intent("com.android.systemui.demo");
-        d.putExtra("command", "notifications");
-        d.putExtra("visible", "false");
-        App.CONTEXT.sendBroadcast(d);
+        // WiFi icon
+        Intent wifi = new Intent("com.android.systemui.demo");
+        wifi.putExtra("command", "network");
+        wifi.putExtra("wifi", "show");
+        wifi.putExtra("level", "4");
+        App.CONTEXT.sendBroadcast(wifi);
 
-        Intent e = new Intent("com.android.systemui.demo");
-        e.putExtra("command", "status");
-        e.putExtra("bluetooth", "hide");
-        e.putExtra("volume", "hide");
-        e.putExtra("mute", "hide");
-        App.CONTEXT.sendBroadcast(e);
+        // rip icons
+        Intent miscNetwork = new Intent("com.android.systemui.demo");
+        miscNetwork.putExtra("command", "network");
+        miscNetwork.putExtra("airplane", "hide");
+        miscNetwork.putExtra("nosim", "hide");
+        miscNetwork.putExtra("sims", 1);
+        App.CONTEXT.sendBroadcast(miscNetwork);
+
+
+        // if there's one thing I hate is cluttered statusbar with notifs
+        Intent notifs = new Intent("com.android.systemui.demo");
+        notifs.putExtra("command", "notifications");
+        notifs.putExtra("visible", "false");
+        App.CONTEXT.sendBroadcast(notifs);
+
+        // goodbye more icons!
+        Intent miscIcons = new Intent("com.android.systemui.demo");
+        miscIcons.putExtra("command", "status");
+        miscIcons.putExtra("bluetooth", "hide");
+        miscIcons.putExtra("volume", "hide");
+        miscIcons.putExtra("mute", "hide");
+        App.CONTEXT.sendBroadcast(miscIcons);
     }
 
     public static void disableDemoMode() {
@@ -77,13 +83,6 @@ public class Utils {
         Intent enableDemoMode = new Intent("com.android.systemui.demo");
         enableDemoMode.putExtra("command", "exit");
         App.CONTEXT.sendBroadcast(enableDemoMode);
-
-        if (isTime24) {
-            Settings.System.putInt(App.CONTEXT.getContentResolver(), Settings.System.TIME_12_24, 24);
-            Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 1);
-            Settings.Secure.putInt(App.CONTEXT.getContentResolver(), CLOCK_SECONDS, 0);
-            isTime24 = false;
-        }
     }
 
     public static boolean isDemoModeAllowed() {
