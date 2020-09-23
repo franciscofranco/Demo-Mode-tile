@@ -1,41 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <androidx.preference.Preference
+        android:icon="@drawable/code_braces"
         android:summary="https://goo.gl/6eVCjr"
         android:title="@string/source_code_title">
         <intent
             android:action="android.intent.action.VIEW"
-            android:data="https://goo.gl/6eVCjr"
-            />
-    </Preference>
+            android:data="https://goo.gl/6eVCjr" />
+    </androidx.preference.Preference>
 
-    <PreferenceCategory
-        android:title="@string/permissions">
+    <androidx.preference.PreferenceCategory android:title="@string/permissions">
 
-        <Preference
+        <androidx.preference.Preference
+            android:icon="@drawable/bug"
             android:key="dump_permission"
-            android:title="@string/dump_permission"/>
+            android:title="@string/dump_permission" />
 
-        <Preference
+        <androidx.preference.Preference
+            android:icon="@drawable/ic_settings_black_24dp"
             android:key="write_secure_settings"
-            android:title="@string/write_secure_settings_permission"/>
-    </PreferenceCategory>
+            android:title="@string/write_secure_settings_permission" />
+    </androidx.preference.PreferenceCategory>
 
-    <PreferenceCategory
-        android:title="@string/social">
-
-        <Preference
-            android:title="Google+">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://plus.google.com/u/0/+FranciscoFranco1990"/>
-        </Preference>
-
-        <Preference
+    <androidx.preference.PreferenceCategory android:title="@string/social">
+        <androidx.preference.Preference
+            android:icon="@drawable/twitter"
             android:title="Twitter">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://twitter.com/franciscof_1990"/>
-        </Preference>
-    </PreferenceCategory>
-</PreferenceScreen>
+                android:data="https://twitter.com/franciscof_1990" />
+        </androidx.preference.Preference>
+    </androidx.preference.PreferenceCategory>
+</androidx.preference.PreferenceScreen>
