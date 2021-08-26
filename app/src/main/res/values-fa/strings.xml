@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">کاشی حالت نمایشی</string>
+    <string name="demo_mode">حالت نمایشی</string>
+    <string name="permission_request_title">درخواست دسترسی کاشی حالت نمایشی</string>
+    <string name="dump_permission_msg">برای کارکردن این برنامه به دسترسی DUMP نیاز دارد.شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nبرای شفافیت متن منبع این برنامه در دسترس است.</string>
+    <string name="write_secure_settings_permission_msg">برای کارکردن این برنامه به دسترسی WRITE_SECURE_SETTINGS نیاز دارد. شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nبرای شفافیت، متن منبع این برنامه در دسترس است.</string>
+    <string name="ok">باشه</string>
+    <string name="dump_permission">DUMP</string>
+    <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
+    <string name="not_granted">اعطا نشده</string>
+    <string name="permissions">دسترسی‌ها</string>
+    <string name="granted">اعطا شده</string>
+    <string name="social">مرا دنبال کنید</string>
+    <string name="source_code_title">متن منبع</string>
+    <string name="permissions_need_to_be_granted">برای این‌که کاشی کار کند باید هر دو دسترسی داده شود!</string>
+    <string name="demo_mode_allowed_title">نکته!</string>
+    <string name="demo_mode_allowed_message">مطمئن شوید که با فعال‌کردن آن در تنظیمات اندروید اجازه می‌دهید حالت نمایشی اجرا شود، وگرنه ممکن است این کاشی کار نکند</string>
+</resources>
