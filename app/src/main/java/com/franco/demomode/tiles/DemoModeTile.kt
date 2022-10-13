@@ -45,7 +45,7 @@ class DemoModeTile : TileService() {
                     Intent(applicationContext, MainActivity::class.java).apply {
                         action = Utils.MISSING_PERMISSION
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                        startActivity(this)
+                        startActivityAndCollapse(this)
                     }
                 }
 
