@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'com.franco.demomode'
-    compileSdkVersion 33
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.franco.demomode"
-        minSdkVersion 24
-        targetSdkVersion 33
+        minSdk 24
+        targetSdk 33
         versionName "1.6"
         versionCode 1910030257
         archivesBaseName = "DemoModeTile-${android.defaultConfig.versionName}"
