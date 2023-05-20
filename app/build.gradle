@@ -2,13 +2,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.franco.demomode"
         minSdkVersion 24
-        targetSdkVersion 30
+        targetSdkVersion 33
         versionName "1.6"
         versionCode 1910030257
         archivesBaseName = "DemoModeTile-${android.defaultConfig.versionName}"
