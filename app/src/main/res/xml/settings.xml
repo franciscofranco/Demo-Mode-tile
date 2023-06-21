@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <androidx.preference.Preference
-        android:icon="@drawable/code_braces"
-        android:summary="https://goo.gl/6eVCjr"
-        android:title="@string/source_code_title">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://goo.gl/6eVCjr" />
-    </androidx.preference.Preference>
 
     <androidx.preference.PreferenceCategory
         android:icon="@drawable/ic_shield_lock"

@@ -32,11 +32,21 @@
         android:layout_height="match_parent"
         android:overScrollMode="always"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragments_container"
             android:name="com.franco.demomode.fragments.SettingsFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/margin_fab"
+        android:text="@string/action_github"
+        app:icon="@drawable/ic_brand_github" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

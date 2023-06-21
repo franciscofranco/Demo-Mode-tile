@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Demo Mode tile</string>
+    <string name="action_github">GitHub</string>
     <string name="demo_mode">Demo mode</string>
     <string name="permission_request_title">Demo mode tile permission request</string>
     <string name="dump_permission_msg">For this app to work it needs DUMP permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nFor transparency this app\'s source code is available.</string>

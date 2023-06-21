@@ -2,4 +2,5 @@
 <resources>
     <color name="primary">#5DE8D0</color>
     <color name="accent">#7B1FA2</color>
+    <color name="github">#24292F</color>
 </resources>
