@@ -9,15 +9,17 @@
             android:data="https://goo.gl/6eVCjr" />
     </androidx.preference.Preference>
 
-    <androidx.preference.PreferenceCategory android:title="@string/permissions">
+    <androidx.preference.PreferenceCategory
+        android:icon="@drawable/ic_shield_lock"
+        android:title="@string/permissions">
 
         <androidx.preference.Preference
-            android:icon="@drawable/bug"
+            android:icon="@drawable/ic_components"
             android:key="dump_permission"
             android:title="@string/dump_permission" />
 
         <androidx.preference.Preference
-            android:icon="@drawable/ic_settings_black_24dp"
+            android:icon="@drawable/ic_settings"
             android:key="write_secure_settings"
             android:title="@string/write_secure_settings_permission" />
     </androidx.preference.PreferenceCategory>
