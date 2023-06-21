@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.application)
     alias(libs.plugins.kotlin)
+    kotlin("kapt")
 }
 
 android {
@@ -59,10 +60,10 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.fragment.ktx)
-    implementation(libs.androidx.lifecycle.common)
     implementation(libs.androidx.lifecycle.livedata.ktx)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.preference.ktx)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.material)
+    kapt(libs.androidx.lifecycle.compiler)
 }
