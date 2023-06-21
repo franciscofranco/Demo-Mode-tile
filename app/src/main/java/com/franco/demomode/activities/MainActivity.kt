@@ -21,12 +21,15 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val action = intent?.action ?: ""
         if (action == Utils.MISSING_PERMISSION) {
-            Snackbar.make(binding.root, R.string.permissions_need_to_be_granted,
-                    Snackbar.LENGTH_INDEFINITE).apply {
+            Snackbar.make(
+                binding.root,
+                R.string.permissions_need_to_be_granted,
+                Snackbar.LENGTH_INDEFINITE
+            ).apply {
                 setAction(R.string.ok) { dismiss() }
                 show()
             }
