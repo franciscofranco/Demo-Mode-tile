@@ -2,7 +2,6 @@ package com.franco.demomode.fragments
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
@@ -34,9 +33,10 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClic
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.isDumpPermissionUpdates(requireContext()).observe(viewLifecycleOwner, ::renderDump)
+        viewModel.isDumpPermissionUpdates(requireContext())
+            .observe(viewLifecycleOwner, ::renderDump)
         viewModel.isWriteSecureSettingsPermissionUpdates(requireContext())
-                .observe(viewLifecycleOwner, ::renderWriteSecureSettings)
+            .observe(viewLifecycleOwner, ::renderWriteSecureSettings)
     }
 
     private fun renderDump(isGranted: Boolean) {
@@ -55,13 +55,16 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClic
 
     override fun onPreferenceClick(preference: Preference): Boolean {
         MaterialAlertDialogBuilder(requireActivity())
-                .setTitle(R.string.permission_request_title)
-                .setMessage(when (preference.key) {
+            .setTitle(R.string.permission_request_title)
+            .setMessage(
+                when (preference.key) {
                     KEY_DUMP -> R.string.dump_permission_msg
                     KET_WRITE_SECURE_SETTINGS -> R.string.write_secure_settings_permission_msg
                     else -> throw IllegalArgumentException("well, this shouldn't ever happen")
-                })
-                .show()
+                }
+            )
+            .setPositiveButton(R.string.ok, null)
+            .show()
         return false
     }
 
