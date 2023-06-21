@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="DemoModeTheme" parent="Theme.Material3.DynamicColors.DayNight">
+    <style name="Theme.DemoModeTile" parent="Theme.Material3.DynamicColors.DayNight">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
@@ -9,4 +9,12 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="O_MR1">?attr/isLightTheme
         </item>
     </style>
+
+    <style name="Theme.BMICalculator.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="windowSplashScreenAnimationDuration">300</item>
+        <item name="postSplashScreenTheme">@style/Theme.DemoModeTile</item>
+        <item name="android:windowLightStatusBar">?android:isLightTheme</item>
+    </style>
+
 </resources>

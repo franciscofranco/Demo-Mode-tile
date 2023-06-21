@@ -13,17 +13,20 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/DemoModeTheme">
+        android:theme="@style/Theme.DemoModeTile">
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name=".activities.ActivitySplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".activities.MainActivity"
+            android:exported="false" />
 
         <service
             android:name="com.franco.demomode.tiles.DemoModeTile"
