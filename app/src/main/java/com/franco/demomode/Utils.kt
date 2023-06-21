@@ -115,15 +115,6 @@ class Utils {
                 == PackageManager.PERMISSION_GRANTED)
     }
 
-    fun setLightNavBar(view: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            var flags = view.systemUiVisibility
-            flags = flags or View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR
-            view.systemUiVisibility = flags
-            (view.context as Activity).window.navigationBarColor = ContextCompat.getColor(view.context, R.color.primary)
-        }
-    }
-
     fun clearLightNavBar(view: View) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             var flags = view.systemUiVisibility

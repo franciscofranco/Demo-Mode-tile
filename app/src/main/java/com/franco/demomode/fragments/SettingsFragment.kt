@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import com.franco.demomode.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
@@ -53,7 +54,7 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClic
     }
 
     override fun onPreferenceClick(preference: Preference): Boolean {
-        AlertDialog.Builder(requireActivity())
+        MaterialAlertDialogBuilder(requireActivity())
                 .setTitle(R.string.permission_request_title)
                 .setMessage(when (preference.key) {
                     KEY_DUMP -> R.string.dump_permission_msg

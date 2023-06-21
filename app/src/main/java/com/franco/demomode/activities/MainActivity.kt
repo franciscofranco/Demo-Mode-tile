@@ -8,6 +8,7 @@ import androidx.lifecycle.lifecycleScope
 import com.franco.demomode.R
 import com.franco.demomode.Utils
 import com.franco.demomode.databinding.ActivityMainBinding
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.launch
 
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             val isDemoModeAllowed = Utils().isDemoModeAllowed(this@MainActivity)
 
             if (!isDemoModeAllowed) {
-                AlertDialog.Builder(this@MainActivity)
+                MaterialAlertDialogBuilder(this@MainActivity)
                         .setTitle(R.string.demo_mode_allowed_title)
                         .setMessage(R.string.demo_mode_allowed_message)
                         .setPositiveButton(android.R.string.ok) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
@@ -44,8 +45,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        Utils().setLightNavBar(binding.root)
-    }
 }
