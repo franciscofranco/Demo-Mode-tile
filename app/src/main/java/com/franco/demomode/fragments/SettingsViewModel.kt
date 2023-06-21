@@ -8,8 +8,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.seconds
 import kotlin.time.ExperimentalTime
-import kotlin.time.seconds
 
 @ExperimentalTime
 class SettingsViewModel : ViewModel() {
@@ -17,16 +17,14 @@ class SettingsViewModel : ViewModel() {
     fun isDumpPermissionUpdates(context: Context) = flow {
         while (true) {
             emit(Utils().isDumpPermissionGranted(context))
-            delay(Random.nextLong(1.seconds.toLongMilliseconds(),
-                    2.seconds.toLongMilliseconds()))
+            delay(Random.nextLong(1.seconds.inWholeMilliseconds, 2.seconds.inWholeMilliseconds))
         }
     }.asLiveData(Dispatchers.IO)
 
     fun isWriteSecureSettingsPermissionUpdates(context: Context) = flow {
         while (true) {
             emit(Utils().isWriteSecureSettingsPermissionGranted(context))
-            delay(Random.nextLong(1.seconds.toLongMilliseconds(),
-                    2.seconds.toLongMilliseconds()))
+            delay(Random.nextLong(1.seconds.inWholeMilliseconds, 2.seconds.inWholeMilliseconds))
         }
     }.asLiveData(Dispatchers.IO)
 }
