@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         val action = intent?.action ?: ""
         if (action == Utils.MISSING_PERMISSION) {
