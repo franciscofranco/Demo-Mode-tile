@@ -65,5 +65,6 @@ dependencies {
     implementation(libs.androidx.preference.ktx)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.material)
+    implementation(libs.tablericons)
     kapt(libs.androidx.lifecycle.compiler)
 }

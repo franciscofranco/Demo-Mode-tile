@@ -10,6 +10,7 @@ androidx-lifecycle = "2.6.1"
 androidx-preference = "1.2.0"
 kotlinx-coroutines-core = "1.4.3"
 material = "1.9.0"
+tablericons = "0.9.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "androidx-core" }
@@ -22,6 +23,7 @@ androidx-lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifec
 androidx-preference-ktx = { group = "androidx.preference", name = "preference-ktx", version.ref = "androidx-preference" }
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx-coroutines-core" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+tablericons = { group = "ir.alirezaivaz", name = "tablericons", version.ref = "tablericons" }
 
 [plugins]
 application = { id = "com.android.application", version.ref = "android" }
