@@ -115,14 +115,6 @@ class Utils {
                 == PackageManager.PERMISSION_GRANTED)
     }
 
-    fun clearLightNavBar(view: View) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            var flags = view.systemUiVisibility
-            flags = flags and View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR.inv()
-            view.systemUiVisibility = flags
-        }
-    }
-
     companion object {
         private const val DEMO_MODE_ALLOWED = "sysui_demo_allowed"
         private const val DEMO_MODE_ON = "sysui_tuner_demo_on"
