@@ -20,15 +20,19 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
-    lintOptions {
-        isAbortOnError = false
-        isCheckAllWarnings = false
-        disable("InvalidPackage")
+    lint {
+        abortOnError = false
+        checkAllWarnings = false
+        disable += "InvalidPackage"
     }
 
-    packagingOptions {
-        exclude("META-INF/LICENSE.txt")
-        exclude("META-INF/NOTICE.txt")
+    packaging {
+        resources {
+            excludes += listOf(
+                "META-INF/LICENSE.txt",
+                "META-INF/NOTICE.txt"
+            )
+        }
     }
 
     buildTypes {
