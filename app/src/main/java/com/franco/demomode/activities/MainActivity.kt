@@ -1,8 +1,8 @@
 package com.franco.demomode.activities
 
-import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AlertDialog
+import android.provider.Settings
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.franco.demomode.R
@@ -37,10 +37,15 @@ class MainActivity : AppCompatActivity() {
 
             if (!isDemoModeAllowed) {
                 MaterialAlertDialogBuilder(this@MainActivity)
-                        .setTitle(R.string.demo_mode_allowed_title)
-                        .setMessage(R.string.demo_mode_allowed_message)
-                        .setPositiveButton(android.R.string.ok) { dialog: DialogInterface, _: Int -> dialog.dismiss() }
-                        .show()
+                    .setTitle(R.string.demo_mode_allowed_title)
+                    .setMessage(R.string.demo_mode_allowed_message)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        startActivity(
+                            Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS)
+                        )
+                    }
+                    .setNegativeButton(R.string.cancel, null)
+                    .show()
             }
         }
     }

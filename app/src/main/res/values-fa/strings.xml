@@ -6,6 +6,7 @@
     <string name="dump_permission_msg">برای کارکردن این برنامه به دسترسی DUMP نیاز دارد.شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nبرای شفافیت متن منبع این برنامه در دسترس است.</string>
     <string name="write_secure_settings_permission_msg">برای کارکردن این برنامه به دسترسی WRITE_SECURE_SETTINGS نیاز دارد. شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nبرای شفافیت، متن منبع این برنامه در دسترس است.</string>
     <string name="ok">باشه</string>
+    <string name="cancel">انصراف</string>
     <string name="dump_permission">DUMP</string>
     <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
     <string name="not_granted">اعطا نشده</string>
