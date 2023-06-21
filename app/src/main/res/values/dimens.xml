@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="margin_spacing">8dp</dimen>
+    <dimen name="margin_horizontal">16dp</dimen>
+    <dimen name="margin_vertical">16dp</dimen>
+    <dimen name="margin_fab">16dp</dimen>
+</resources>
