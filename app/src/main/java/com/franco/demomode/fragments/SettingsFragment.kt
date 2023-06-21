@@ -56,6 +56,12 @@ class SettingsFragment : PreferenceFragmentCompat(), Preference.OnPreferenceClic
     override fun onPreferenceClick(preference: Preference): Boolean {
         MaterialAlertDialogBuilder(requireActivity())
             .setTitle(R.string.permission_request_title)
+            .setIcon(
+                when (preference.key) {
+                    KEY_DUMP -> R.drawable.bug
+                    else -> R.drawable.ic_settings_black_24dp
+                }
+            )
             .setMessage(
                 when (preference.key) {
                     KEY_DUMP -> R.string.dump_permission_msg
