@@ -4,6 +4,7 @@
     <string name="action_github">GitHub</string>
     <string name="action_open_developer">Open developer options</string>
     <string name="action_grant_permission">Grant permission</string>
+    <string name="action_grant_root">Grant with root</string>
     <string name="action_ok">OK</string>
     <string name="action_cancel">Cancel</string>
     <string name="permissions_title">Permissions</string>
@@ -17,11 +18,18 @@
     <string name="permission_write_secure_settings">Write secure settings</string>
     <string name="permission_write_secure_settings_description">We need this permission to change demo mode settings.</string>
     <string name="permission_request_title">@string/app_name</string>
-    <string name="permission_request_description">For this app to work, it needs %1$s permission to be granted. Unfortunately that is only possible through adb shell from your PC:\n\nadb -d shell pm grant %2$s %3$s</string>
+    <string name="permission_request_description">
+        "For this app to work, it needs %1$s permission to be granted. "
+        "Unfortunately that is only possible through adb shell from your PC:\n\n"
+        "adb -d shell pm grant %2$s %3$s\n\n"
+        "Also if you've root access, you can grant it automatically by "
+        "clicking on the 'Grant with root' button at below"
+    </string>
     <string name="warning_permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
     <string name="warning_demo_mode_allowed_title">Demo mode not allowed!</string>
     <string name="warning_demo_mode_allowed_message">
         "Please make sure you're turned on demo mode in developer options; "
         "Because the tile won't works properly until you turned it on!"
     </string>
+    <string name="error_root_access">Root access denied!</string>
 </resources>

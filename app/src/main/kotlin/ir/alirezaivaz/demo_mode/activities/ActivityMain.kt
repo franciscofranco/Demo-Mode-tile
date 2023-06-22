@@ -164,47 +164,27 @@ class ActivityMain : AppCompatActivity() {
                 )
             )
             setPositiveButton(R.string.action_ok, null)
+            setNeutralButton(R.string.action_grant_root) { _, _ ->
+                grantPermissionWithRoot(permission)
+            }
             show()
         }
     }
 
-    private fun grantPermissions() {
+    private fun grantPermissionWithRoot(permission: String) {
         try {
             val su = Runtime.getRuntime().exec("su")
-            val permissions = arrayOf(
-                Manifest.permission.DUMP,
-                Manifest.permission.WRITE_SECURE_SETTINGS
-            )
-            permissions.forEach {
-                val command = "pm grant $packageName $it\n"
-                Log.e("Test", command)
-                su.outputStream.write(command.toByteArray(charset("UTF-8")))
-                su.outputStream.flush()
-            }
+            val command = "pm grant $packageName $permission\n"
+            su.outputStream.write(command.toByteArray(charset("UTF-8")))
+            su.outputStream.flush()
             su.outputStream.write("exit\n".toByteArray(charset("UTF-8")))
             su.outputStream.flush()
-//            su.waitFor()
-            if (ContextCompat.checkSelfPermission(
-                    activityMain,
-                    Manifest.permission.DUMP
-                ) == PackageManager.PERMISSION_GRANTED
-            ) {
-                Toast.makeText(activityMain, "dump settings granted", Toast.LENGTH_SHORT)
-                    .show()
-            } else {
-                Toast.makeText(activityMain, "dump settings denied", Toast.LENGTH_SHORT).show()
-            }
-//            if (isWriteSecureSettingsPermissionGranted()) {
-//                Toast.makeText(mainActivity, "Write settings granted", Toast.LENGTH_SHORT).show()
-//            } else {
-//                Toast.makeText(mainActivity, "Write settings denied", Toast.LENGTH_SHORT).show()
-//            }
         } catch (e: IOException) {
-            Snackbar.make(binding.root, "Failed to grant permissions!", Snackbar.LENGTH_SHORT)
+            Snackbar.make(binding.root, R.string.error_root_access, Snackbar.LENGTH_SHORT)
+                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
                 .show()
         }
     }
-
 
     private fun ExtendedFloatingActionButton.initGitHubFab() {
         smoothShrink()
