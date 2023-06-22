@@ -26,7 +26,6 @@ import com.franco.demomode.fragments.SettingsViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import ir.alirezaivaz.tablericons.BuildConfig
 import kotlinx.coroutines.launch
 import java.io.IOException
 import kotlin.time.ExperimentalTime
@@ -80,23 +79,22 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if (BuildConfig.DEBUG) // TODO: Remove this
-            lifecycleScope.launch {
-                val isDemoModeAllowed = Utils().isDemoModeAllowed(mainActivity)
+        lifecycleScope.launch {
+            val isDemoModeAllowed = Utils().isDemoModeAllowed(mainActivity)
 
-                if (!isDemoModeAllowed) {
-                    MaterialAlertDialogBuilder(mainActivity)
-                        .setTitle(R.string.demo_mode_allowed_title)
-                        .setMessage(R.string.demo_mode_allowed_message)
-                        .setPositiveButton(R.string.ok) { _, _ ->
-                            startActivity(
-                                Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS)
-                            )
-                        }
-                        .setNegativeButton(R.string.cancel, null)
-                        .show()
-                }
+            if (!isDemoModeAllowed) {
+                MaterialAlertDialogBuilder(mainActivity)
+                    .setTitle(R.string.demo_mode_allowed_title)
+                    .setMessage(R.string.demo_mode_allowed_message)
+                    .setPositiveButton(R.string.ok) { _, _ ->
+                        startActivity(
+                            Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS)
+                        )
+                    }
+                    .setNegativeButton(R.string.cancel, null)
+                    .show()
             }
+        }
     }
 
     private fun renderDump(isGranted: Boolean) {
