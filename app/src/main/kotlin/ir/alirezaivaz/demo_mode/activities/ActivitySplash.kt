@@ -1,4 +1,4 @@
-package com.franco.demomode.activities
+package ir.alirezaivaz.demo_mode.activities
 
 import android.content.Intent
 import android.os.Bundle

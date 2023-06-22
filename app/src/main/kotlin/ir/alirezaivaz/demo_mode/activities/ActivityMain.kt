@@ -1,4 +1,4 @@
-package com.franco.demomode.activities
+package ir.alirezaivaz.demo_mode.activities
 
 import android.Manifest
 import android.content.Intent
@@ -20,9 +20,9 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.franco.demomode.R
-import com.franco.demomode.Utils
+import ir.alirezaivaz.demo_mode.Utils
 import com.franco.demomode.databinding.ActivityMainBinding
-import com.franco.demomode.viewmodel.MainViewModel
+import ir.alirezaivaz.demo_mode.viewmodel.MainViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar

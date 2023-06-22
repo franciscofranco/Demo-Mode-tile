@@ -1,9 +1,9 @@
-package com.franco.demomode.viewmodel
+package ir.alirezaivaz.demo_mode.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.franco.demomode.Utils
+import ir.alirezaivaz.demo_mode.Utils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow

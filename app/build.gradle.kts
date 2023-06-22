@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.franco.demomode"
+    namespace = "ir.alirezaivaz.demo_mode"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.franco.demomode"
+        applicationId = "ir.alirezaivaz.demo_mode"
         minSdk = 24
         targetSdk = 33
         versionName = "1.6"

@@ -1,4 +1,4 @@
-package com.franco.demomode
+package ir.alirezaivaz.demo_mode
 
 import android.Manifest
 import android.app.Activity

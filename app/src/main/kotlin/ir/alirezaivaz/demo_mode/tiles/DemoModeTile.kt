@@ -1,12 +1,12 @@
-package com.franco.demomode.tiles
+package ir.alirezaivaz.demo_mode.tiles
 
 import android.content.Intent
 import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.franco.demomode.R
-import com.franco.demomode.Utils
-import com.franco.demomode.activities.ActivityMain
+import ir.alirezaivaz.demo_mode.Utils
+import ir.alirezaivaz.demo_mode.activities.ActivityMain
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.time.ExperimentalTime

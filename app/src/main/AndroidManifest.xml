@@ -30,7 +30,7 @@
             android:exported="false" />
 
         <service
-            android:name="com.franco.demomode.tiles.DemoModeTile"
+            android:name=".tiles.DemoModeTile"
             android:exported="true"
             android:icon="@drawable/ic_off"
             android:label="@string/demo_mode"
