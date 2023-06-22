@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Demo Mode tile</string>
     <string name="action_github">GitHub</string>
+    <string name="action_open_developer">Open developer options</string>
     <string name="action_grant_permission">Grant permission</string>
     <string name="permissions_title">Permissions</string>
     <string name="permissions_description">
@@ -27,6 +28,9 @@
     <string name="social">Follow me</string>
     <string name="source_code_title">Source code</string>
     <string name="permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
-    <string name="demo_mode_allowed_title">Tip!</string>
-    <string name="demo_mode_allowed_message">Make sure you allow demo mode to run by enabling it on Android settings, otherwise this tile might not work</string>
+    <string name="warning_demo_mode_allowed_title">Demo mode not allowed!</string>
+    <string name="warning_demo_mode_allowed_message">
+        "Please make sure you're turned on demo mode in developer options; "
+        "Because the tile won't works properly until you turned it on!"
+    </string>
 </resources>

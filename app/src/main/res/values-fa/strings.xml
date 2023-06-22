@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">کاشی حالت نمایشی</string>
     <string name="action_github">گیت‌هاب</string>
+    <string name="action_open_developer">بازکردن گزینه‌های برنامه‌نویسان</string>
     <string name="action_grant_permission">اعطای دسترسی</string>
     <string name="permissions_title">دسترسی‌ها</string>
     <string name="permissions_description">
@@ -28,6 +29,9 @@
     <string name="social">مرا دنبال کنید</string>
     <string name="source_code_title">متن منبع</string>
     <string name="permissions_need_to_be_granted">برای این‌که کاشی کار کند باید هر دو دسترسی داده شود!</string>
-    <string name="demo_mode_allowed_title">نکته!</string>
-    <string name="demo_mode_allowed_message">مطمئن شوید که با فعال‌کردن آن در تنظیمات اندروید اجازه می‌دهید حالت نمایشی اجرا شود، وگرنه ممکن است این کاشی کار نکند</string>
+    <string name="warning_demo_mode_allowed_title">حالت نمایشی مجاز نیست!</string>
+    <string name="warning_demo_mode_allowed_message">
+        "خواهشمندیم مطمئن شوید که حالت نمایشی در گزینه‌های برنامه‌نویسان را فعال کرده‌اید؛ "
+        "زیرا تا زمانی که آن‌را فعال نکرده باشید کاشی برنامه به‌درستی کار نخواهد کرد."
+    </string>
 </resources>

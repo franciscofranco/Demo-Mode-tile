@@ -83,16 +83,18 @@ class ActivityMain : AppCompatActivity() {
             val isDemoModeAllowed = Utils().isDemoModeAllowed(activityMain)
 
             if (!isDemoModeAllowed) {
-                MaterialAlertDialogBuilder(activityMain)
-                    .setTitle(R.string.demo_mode_allowed_title)
-                    .setMessage(R.string.demo_mode_allowed_message)
-                    .setPositiveButton(R.string.ok) { _, _ ->
+                MaterialAlertDialogBuilder(activityMain).apply {
+                    setIcon(ir.alirezaivaz.tablericons.R.drawable.ic_progress_alert)
+                    setTitle(R.string.warning_demo_mode_allowed_title)
+                    setMessage(R.string.warning_demo_mode_allowed_message)
+                    setPositiveButton(R.string.action_open_developer) { _, _ ->
                         startActivity(
                             Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS)
                         )
                     }
-                    .setNegativeButton(R.string.cancel, null)
-                    .show()
+                    setNegativeButton(R.string.cancel, null)
+                    show()
+                }
             }
         }
     }
