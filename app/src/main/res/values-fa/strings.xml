@@ -19,8 +19,6 @@
     <string name="permission_write_secure_settings_description">برای تغییر تنظیمات حالت نمایشی به این دسترسی نیاز داریم.</string>
     <string name="permission_request_title">درخواست دسترسی کاشی حالت نمایشی</string>
     <string name="permission_request_description">برای این‌که این برنامه کار کند نیاز دارد که دسترسی %1$s اعطا شود. متاسفانه اعطای این دسترسی تنها از طریق دستور adb shell در رایانه شما امکان‌پذیر است:\n\nadb -d shell pm grant %2$s %3$s</string>
-    <string name="dump_permission_msg">برای کارکردن این برنامه به دسترسی DUMP نیاز دارد.شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.DUMP\n\nبرای شفافیت متن منبع این برنامه در دسترس است.</string>
-    <string name="write_secure_settings_permission_msg">برای کارکردن این برنامه به دسترسی WRITE_SECURE_SETTINGS نیاز دارد. شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.WRITE_SECURE_SETTINGS\n\nبرای شفافیت، متن منبع این برنامه در دسترس است.</string>
     <string name="warning_permissions_need_to_be_granted">برای این‌که کاشی کار کند باید هر دو دسترسی داده شود!</string>
     <string name="warning_demo_mode_allowed_title">حالت نمایشی مجاز نیست!</string>
     <string name="warning_demo_mode_allowed_message">
