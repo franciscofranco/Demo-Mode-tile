@@ -10,10 +10,12 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.DemoModeTile">
+        android:theme="@style/Theme.DemoModeTile"
+        tools:targetApi="tiramisu">
 
         <activity
             android:name=".activities.ActivitySplash"
