@@ -108,11 +108,12 @@
                             android:id="@+id/dump_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:importantForAccessibility="no"
                             android:src="@drawable/ic_progress_alert"
-                            app:tint="@color/orange"
                             app:layout_constraintBottom_toBottomOf="@id/dump_title"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@id/dump_title" />
+                            app:layout_constraintTop_toTopOf="@id/dump_title"
+                            app:tint="@color/orange" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.divider.MaterialDivider
@@ -170,11 +171,12 @@
                             android:id="@+id/write_status"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:importantForAccessibility="no"
                             android:src="@drawable/ic_progress_alert"
-                            app:tint="@color/orange"
                             app:layout_constraintBottom_toBottomOf="@id/write_title"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="@id/write_title" />
+                            app:layout_constraintTop_toTopOf="@id/write_title"
+                            app:tint="@color/orange" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <com.google.android.material.divider.MaterialDivider
