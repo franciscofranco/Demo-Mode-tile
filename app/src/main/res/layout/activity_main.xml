@@ -16,6 +16,8 @@
             android:layout_width="wrap_content"
             android:layout_height="?attr/collapsingToolbarLayoutLargeSize"
             android:fitsSystemWindows="true"
+            app:collapsedTitleTextAppearance="@style/TextAppearance.DemoModeTile.TitleLarge"
+            app:expandedTitleTextAppearance="@style/TextAppearance.DemoModeTile.HeadlineMedium"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <com.google.android.material.appbar.MaterialToolbar
