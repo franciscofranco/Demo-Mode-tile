@@ -1,15 +1,11 @@
 package ir.alirezaivaz.demo_mode
 
 import android.Manifest
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.os.Build
 import android.provider.Settings
 import android.provider.Settings.SettingNotFoundException
-import android.view.View
-import androidx.core.content.ContextCompat
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

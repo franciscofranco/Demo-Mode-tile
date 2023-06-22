@@ -4,7 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import com.franco.demomode.R
+import ir.alirezaivaz.demo_mode.R
 import ir.alirezaivaz.demo_mode.Utils
 import ir.alirezaivaz.demo_mode.activities.ActivityMain
 import kotlinx.coroutines.GlobalScope

@@ -19,13 +19,13 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
-import com.franco.demomode.R
-import ir.alirezaivaz.demo_mode.Utils
-import com.franco.demomode.databinding.ActivityMainBinding
-import ir.alirezaivaz.demo_mode.viewmodel.MainViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import ir.alirezaivaz.demo_mode.R
+import ir.alirezaivaz.demo_mode.Utils
+import ir.alirezaivaz.demo_mode.databinding.ActivityMainBinding
+import ir.alirezaivaz.demo_mode.viewmodel.MainViewModel
 import kotlinx.coroutines.launch
 import java.io.IOException
 import kotlin.time.ExperimentalTime
