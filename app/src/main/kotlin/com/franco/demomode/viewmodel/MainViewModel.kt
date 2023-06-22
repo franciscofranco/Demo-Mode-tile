@@ -1,4 +1,4 @@
-package com.franco.demomode.fragments
+package com.franco.demomode.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -12,7 +12,7 @@ import kotlin.time.Duration.Companion.seconds
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class SettingsViewModel : ViewModel() {
+class MainViewModel : ViewModel() {
 
     fun isDumpPermissionUpdates(context: Context) = flow {
         while (true) {

@@ -22,7 +22,7 @@ import androidx.lifecycle.lifecycleScope
 import com.franco.demomode.R
 import com.franco.demomode.Utils
 import com.franco.demomode.databinding.ActivityMainBinding
-import com.franco.demomode.fragments.SettingsViewModel
+import com.franco.demomode.viewmodel.MainViewModel
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -34,7 +34,7 @@ import kotlin.time.ExperimentalTime
 class MainActivity : AppCompatActivity() {
     private val mainActivity = this@MainActivity
     private lateinit var binding: ActivityMainBinding
-    private val viewModel by viewModels<SettingsViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
