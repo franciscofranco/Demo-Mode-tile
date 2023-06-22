@@ -12,8 +12,8 @@ android {
         applicationId = "ir.alirezaivaz.demo_mode"
         minSdk = 24
         targetSdk = 33
-        versionName = "1.6"
-        versionCode = 1910030257
+        versionName = "1.0.0"
+        versionCode = 100
     }
 
     compileOptions {
