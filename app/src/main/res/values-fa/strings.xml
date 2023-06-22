@@ -2,6 +2,7 @@
 <resources>
     <string name="app_name">کاشی حالت نمایشی</string>
     <string name="action_github">گیت‌هاب</string>
+    <string name="action_grant_permission">اعطای دسترسی</string>
     <string name="permissions_title">دسترسی‌ها</string>
     <string name="permissions_description">
         "برای این‌که این برنامه به‌درستی کار کند به دسترسی‌های زیر نیاز داریم. از آن‌جا که این دسترسی‌ها بخشی‌از"

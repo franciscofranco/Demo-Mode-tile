@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Demo Mode tile</string>
     <string name="action_github">GitHub</string>
+    <string name="action_grant_permission">Grant permission</string>
     <string name="permissions_title">Permissions</string>
     <string name="permissions_description">
         "We need the following permissions for this app to work properly. Since these "
