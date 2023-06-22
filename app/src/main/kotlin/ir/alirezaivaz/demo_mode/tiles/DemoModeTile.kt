@@ -40,7 +40,8 @@ class DemoModeTile : TileService() {
 
         GlobalScope.launch {
             val hasDumpPermission = Utils().isDumpPermissionGranted(applicationContext)
-            val hasWriteSecurePermission = Utils().isWriteSecureSettingsPermissionGranted(applicationContext)
+            val hasWriteSecurePermission =
+                Utils().isWriteSecureSettingsPermissionGranted(applicationContext)
 
             when {
                 !hasDumpPermission || !hasWriteSecurePermission -> {

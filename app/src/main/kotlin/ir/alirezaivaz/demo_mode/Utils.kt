@@ -105,11 +105,13 @@ class Utils {
                 == PackageManager.PERMISSION_GRANTED)
     }
 
-    suspend fun isWriteSecureSettingsPermissionGranted(context: Context): Boolean = withContext(Dispatchers.IO) {
-        (context.packageManager.checkPermission(
-                Manifest.permission.WRITE_SECURE_SETTINGS, context.packageName)
-                == PackageManager.PERMISSION_GRANTED)
-    }
+    suspend fun isWriteSecureSettingsPermissionGranted(context: Context): Boolean =
+        withContext(Dispatchers.IO) {
+            (context.packageManager.checkPermission(
+                Manifest.permission.WRITE_SECURE_SETTINGS, context.packageName
+            )
+                    == PackageManager.PERMISSION_GRANTED)
+        }
 
     companion object {
         private const val DEMO_MODE_ALLOWED = "sysui_demo_allowed"
