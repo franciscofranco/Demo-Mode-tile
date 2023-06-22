@@ -10,7 +10,7 @@
         </item>
     </style>
 
-    <style name="Theme.BMICalculator.SplashScreen" parent="Theme.SplashScreen">
+    <style name="Theme.DemoModeTile.SplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
         <item name="windowSplashScreenAnimationDuration">300</item>
         <item name="postSplashScreenTheme">@style/Theme.DemoModeTile</item>
