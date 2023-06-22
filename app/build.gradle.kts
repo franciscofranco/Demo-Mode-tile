@@ -14,6 +14,9 @@ android {
         targetSdk = 33
         versionName = "1.0.0"
         versionCode = 100
+        resourceConfigurations += arrayOf(
+            "en", "fa"
+        )
     }
 
     compileOptions {
