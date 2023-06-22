@@ -33,11 +33,173 @@
         android:overScrollMode="always"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/fragments_container"
-            android:name="com.franco.demomode.fragments.SettingsFragment"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal"
+                android:layout_marginTop="@dimen/margin_vertical"
+                android:layout_marginBottom="@dimen/margin_spacing">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_horizontal"
+                    android:layout_marginVertical="@dimen/margin_vertical">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/permissions_title"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/permissions_title"
+                        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/permissions_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing"
+                        android:text="@string/permissions_description"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/permissions_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal"
+                android:layout_marginVertical="@dimen/margin_spacing">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_horizontal"
+                    android:layout_marginVertical="@dimen/margin_vertical"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/dump_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/permission_dump"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            app:layout_constraintEnd_toStartOf="@id/dump_status"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/dump_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_progress_alert"
+                            app:tint="@color/orange"
+                            app:layout_constraintBottom_toBottomOf="@id/dump_title"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/dump_title" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/dump_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/dump_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing"
+                        android:text="@string/permission_dump_description"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/dump_grant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing"
+                        android:text="Grant permission" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_horizontal"
+                android:layout_marginVertical="@dimen/margin_spacing">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_horizontal"
+                    android:layout_marginVertical="@dimen/margin_vertical"
+                    android:animateLayoutChanges="true"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/write_title"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="@string/permission_write_secure_settings"
+                            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+                            app:layout_constraintEnd_toStartOf="@id/write_status"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:id="@+id/write_status"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_progress_alert"
+                            app:tint="@color/orange"
+                            app:layout_constraintBottom_toBottomOf="@id/write_title"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@id/write_title" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.divider.MaterialDivider
+                        android:id="@+id/write_divider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/write_description"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing"
+                        android:text="@string/permission_dump_description"
+                        android:textAppearance="@style/TextAppearance.Material3.BodyMedium" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/write_grant"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_spacing"
+                        android:text="Grant permission" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton

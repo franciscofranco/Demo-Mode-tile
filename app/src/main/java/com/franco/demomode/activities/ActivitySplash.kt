@@ -5,7 +5,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 class ActivitySplash : AppCompatActivity() {
     private lateinit var splashScreen: SplashScreen
     override fun onCreate(savedInstanceState: Bundle?) {

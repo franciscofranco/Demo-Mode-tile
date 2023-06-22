@@ -1,8 +1,19 @@
 <resources>
     <string name="app_name">Demo Mode tile</string>
     <string name="action_github">GitHub</string>
+    <string name="permissions_title">Permissions</string>
+    <string name="permissions_description">
+        "We need the following permissions for this app to work properly. Since these "
+        "permissions are among the protected permissions, to grant them to the app you "
+        "need to use the adb shell command on the PC or from the terminal with root access."
+    </string>
+    <string name="permission_dump">Access to system dump report</string>
+    <string name="permission_dump_description">We need this permission to identify and set the status of the tile correctly.</string>
+    <string name="permission_write_secure_settings">Write secure settings</string>
+    <string name="permission_write_secure_settings_description">We need this permission to change demo mode settings.</string>
+    <string name="permission_request_title">@string/app_name</string>
+    <string name="permission_request_description">For this app to work, it needs %1$s permission to be granted. Unfortunately that is only possible through adb shell from your PC:\n\nadb -d shell pm grant %2$s %3$s</string>
     <string name="demo_mode">Demo mode</string>
-    <string name="permission_request_title">Demo mode tile permission request</string>
     <string name="dump_permission_msg">For this app to work it needs DUMP permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nFor transparency this app\'s source code is available.</string>
     <string name="write_secure_settings_permission_msg">For this app to work it needs WRITE_SECURE_SETTINGS permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nFor transparency this app\'s source code is available.</string>
     <string name="ok">OK</string>

@@ -9,7 +9,9 @@ import com.franco.demomode.Utils
 import com.franco.demomode.activities.MainActivity
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import kotlin.time.ExperimentalTime
 
+@ExperimentalTime
 class DemoModeTile : TileService() {
     override fun onStartListening() {
         super.onStartListening()

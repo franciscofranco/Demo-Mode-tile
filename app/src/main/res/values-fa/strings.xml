@@ -2,8 +2,19 @@
 <resources>
     <string name="app_name">کاشی حالت نمایشی</string>
     <string name="action_github">گیت‌هاب</string>
-    <string name="demo_mode">حالت نمایشی</string>
+    <string name="permissions_title">دسترسی‌ها</string>
+    <string name="permissions_description">
+        "برای این‌که این برنامه به‌درستی کار کند به دسترسی‌های زیر نیاز داریم. از آن‌جا که این دسترسی‌ها بخشی‌از"
+        "دسترسی‌های محافظت‌شده هستند، برای اعطای آن‌ها به برنامه باید از فرمان adb shell در رایانه شخصی "
+        "یا از ترمینال با دسترسی روت استفاده کنید."
+    </string>
+    <string name="permission_dump">دسترسی به گزارش دامپ سامانه</string>
+    <string name="permission_dump_description">برای شناسایی و تنظیم درست وضعیت کاشی تنظیمات سریع به این دسترسی نیاز داریم.</string>
+    <string name="permission_write_secure_settings">نوشتن تنظیمات امن سامانه</string>
+    <string name="permission_write_secure_settings_description">برای تغییر تنظیمات حالت نمایشی به این دسترسی نیاز داریم.</string>
     <string name="permission_request_title">درخواست دسترسی کاشی حالت نمایشی</string>
+    <string name="permission_request_description">برای این‌که این برنامه کار کند نیاز دارد که دسترسی %1$s اعطا شود. متاسفانه اعطای این دسترسی تنها از طریق دستور adb shell در رایانه شما امکان‌پذیر است:\n\nadb -d shell pm grant %2$s %3$s</string>
+    <string name="demo_mode">حالت نمایشی</string>
     <string name="dump_permission_msg">برای کارکردن این برنامه به دسترسی DUMP نیاز دارد.شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nبرای شفافیت متن منبع این برنامه در دسترس است.</string>
     <string name="write_secure_settings_permission_msg">برای کارکردن این برنامه به دسترسی WRITE_SECURE_SETTINGS نیاز دارد. شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nبرای شفافیت، متن منبع این برنامه در دسترس است.</string>
     <string name="ok">باشه</string>
