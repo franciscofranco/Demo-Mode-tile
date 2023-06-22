@@ -18,8 +18,6 @@
     <string name="permission_write_secure_settings_description">We need this permission to change demo mode settings.</string>
     <string name="permission_request_title">@string/app_name</string>
     <string name="permission_request_description">For this app to work, it needs %1$s permission to be granted. Unfortunately that is only possible through adb shell from your PC:\n\nadb -d shell pm grant %2$s %3$s</string>
-    <string name="dump_permission_msg">For this app to work it needs DUMP permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.DUMP\n\nFor transparency this app\'s source code is available.</string>
-    <string name="write_secure_settings_permission_msg">For this app to work it needs WRITE_SECURE_SETTINGS permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.WRITE_SECURE_SETTINGS\n\nFor transparency this app\'s source code is available.</string>
     <string name="warning_permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
     <string name="warning_demo_mode_allowed_title">Demo mode not allowed!</string>
     <string name="warning_demo_mode_allowed_message">
