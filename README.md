@@ -6,8 +6,8 @@ It's a very simple tool presented as a Quick Tile to simplify the process of set
 For it to work you need to grant it two permissions through adb shell from your computer:
 
 ```
-adb -d shell pm grant com.franco.demomode android.permission.DUMP
-adb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS
+adb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.DUMP
+adb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.WRITE_SECURE_SETTINGS
 ```
 
 The `DUMP` permission is required for the Demo Mode to actually work, and the `WRITE_SECURE_SETTINGS` is necessary for the Quick Tile to read the setting and present the correct icon depending on its state.
