@@ -4,6 +4,8 @@ plugins {
     kotlin("kapt")
 }
 
+val githubUrl = "https://github.com/AlirezaIvaz/DemoMode"
+
 android {
     namespace = "ir.alirezaivaz.demo_mode"
     compileSdk = 33
@@ -16,6 +18,11 @@ android {
         versionCode = 100
         resourceConfigurations += arrayOf(
             "en", "fa"
+        )
+        buildConfigField(
+            "String",
+            "GITHUB_REPO_URL",
+            "\"$githubUrl\""
         )
     }
 
@@ -50,7 +57,69 @@ android {
         }
     }
 
+    flavorDimensions += "distributor"
+    productFlavors {
+        create("github") {
+            dimension = "distributor"
+            versionNameSuffix = "-GH"
+            buildConfigField(
+                "String",
+                "DOWNLOAD_LINK",
+                "\"$githubUrl\""
+            )
+            buildConfigField(
+                "String",
+                "RATE_INTENT",
+                "\"$githubUrl/issues\""
+            )
+            buildConfigField(
+                "String",
+                "APPS_INTENT",
+                "\"https://github.com/AlirezaIvaz\""
+            )
+        }
+        create("cafebazaar") {
+            dimension = "distributor"
+            versionNameSuffix = "-CB"
+            buildConfigField(
+                "String",
+                "DOWNLOAD_LINK",
+                "\"https://cafebazaar.ir/app/${defaultConfig.applicationId}\""
+            )
+            buildConfigField(
+                "String",
+                "RATE_INTENT",
+                "\"bazaar://details?id=${defaultConfig.applicationId}\""
+            )
+            buildConfigField(
+                "String",
+                "APPS_INTENT",
+                "\"bazaar://collection?slug=by_author&aid=alirezaivaz\""
+            )
+        }
+        create("myket") {
+            dimension = "distributor"
+            versionNameSuffix = "-MK"
+            buildConfigField(
+                "String",
+                "DOWNLOAD_LINK",
+                "\"https://myket.ir/app/${defaultConfig.applicationId}\""
+            )
+            buildConfigField(
+                "String",
+                "RATE_INTENT",
+                "\"myket://comment?id=${defaultConfig.applicationId}\""
+            )
+            buildConfigField(
+                "String",
+                "APPS_INTENT",
+                "\"myket://developer/${defaultConfig.applicationId}\""
+            )
+        }
+    }
+
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
     kotlinOptions {

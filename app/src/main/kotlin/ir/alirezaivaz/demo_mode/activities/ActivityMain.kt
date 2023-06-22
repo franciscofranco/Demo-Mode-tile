@@ -9,6 +9,9 @@ import android.os.Handler
 import android.os.Looper
 import android.provider.Settings
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.DrawableRes
@@ -21,7 +24,9 @@ import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+import com.google.android.material.snackbar.BaseTransientBottomBar.Duration
 import com.google.android.material.snackbar.Snackbar
+import ir.alirezaivaz.demo_mode.BuildConfig
 import ir.alirezaivaz.demo_mode.R
 import ir.alirezaivaz.demo_mode.Utils
 import ir.alirezaivaz.demo_mode.databinding.ActivityMainBinding
@@ -97,6 +102,55 @@ class ActivityMain : AppCompatActivity() {
                 }
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_share -> {
+                val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                    type = "text/plain"
+                    putExtra(Intent.EXTRA_SUBJECT, getString(R.string.app_name))
+                    putExtra(
+                        Intent.EXTRA_TEXT,
+                        "${getString(R.string.app_name)}\n${BuildConfig.DOWNLOAD_LINK}"
+                    )
+                }
+                startActivity(
+                    Intent.createChooser(
+                        shareIntent,
+                        getString(R.string.action_share_chooser)
+                    )
+                )
+            }
+
+            R.id.action_rate -> {
+                try {
+                    val intentAction = if (BuildConfig.FLAVOR == "cafebazaar")
+                        Intent.ACTION_EDIT
+                    else
+                        Intent.ACTION_VIEW
+                    val intent = Intent(intentAction, Uri.parse(BuildConfig.RATE_INTENT))
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    binding.root.snackBar(R.string.error_action_failure)
+                }
+            }
+
+            R.id.action_apps -> {
+                try {
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(BuildConfig.APPS_INTENT))
+                    startActivity(intent)
+                } catch (e: Exception) {
+                    binding.root.snackBar(R.string.error_action_failure)
+                }
+            }
+        }
+        return true
     }
 
     private fun renderDump(isGranted: Boolean) {
@@ -180,10 +234,14 @@ class ActivityMain : AppCompatActivity() {
             su.outputStream.write("exit\n".toByteArray(charset("UTF-8")))
             su.outputStream.flush()
         } catch (e: IOException) {
-            Snackbar.make(binding.root, R.string.error_root_access, Snackbar.LENGTH_SHORT)
-                .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
-                .show()
+            binding.root.snackBar(R.string.error_root_access)
         }
+    }
+
+    private fun View.snackBar(message: Int, @Duration length: Int = Snackbar.LENGTH_SHORT) {
+        Snackbar.make(this, message, length)
+            .setAnimationMode(Snackbar.ANIMATION_MODE_SLIDE)
+            .show()
     }
 
     private fun ExtendedFloatingActionButton.initGitHubFab() {
@@ -200,7 +258,7 @@ class ActivityMain : AppCompatActivity() {
                 .build()
                 .launchUrl(
                     activityMain,
-                    Uri.parse("https://github.com/AlirezaIvaz/DemoModeTile")
+                    Uri.parse(BuildConfig.GITHUB_REPO_URL)
                 )
         }
         setOnLongClickListener {

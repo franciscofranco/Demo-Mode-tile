@@ -2,6 +2,12 @@
     <string name="app_name">Demo Mode tile</string>
     <string name="action_demo_mode">Demo mode</string>
     <string name="action_github">GitHub</string>
+    <string name="action_github_issues">GitHub issues</string>
+    <string name="action_github_profile">GitHub profile</string>
+    <string name="action_share">Share</string>
+    <string name="action_share_chooser">Share via…</string>
+    <string name="action_rate">Rate</string>
+    <string name="action_apps">More apps</string>
     <string name="action_open_developer">Open developer options</string>
     <string name="action_grant_permission">Grant permission</string>
     <string name="action_grant_root">Grant with root</string>
@@ -31,5 +37,6 @@
         "Please make sure you're turned on demo mode in developer options; "
         "Because the tile won't works properly until you turned it on!"
     </string>
+    <string name="error_action_failure">Failed to complete this action!</string>
     <string name="error_root_access">Root access denied!</string>
 </resources>

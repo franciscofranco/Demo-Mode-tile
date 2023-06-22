@@ -3,6 +3,12 @@
     <string name="app_name">کاشی حالت نمایشی</string>
     <string name="action_demo_mode">حالت نمایشی</string>
     <string name="action_github">گیت‌هاب</string>
+    <string name="action_github_issues">ایشوها در گیت‌هاب</string>
+    <string name="action_github_profile">نمایهٔ گیت‌هاب</string>
+    <string name="action_share">هم‌رسانی</string>
+    <string name="action_share_chooser">هم‌رسانی با…</string>
+    <string name="action_rate">امتیاز به برنامه</string>
+    <string name="action_apps">برنامه‌های بیشتر</string>
     <string name="action_open_developer">بازکردن گزینه‌های برنامه‌نویسان</string>
     <string name="action_grant_permission">اعطای دسترسی</string>
     <string name="action_grant_root">اعطا با روت</string>
@@ -32,5 +38,6 @@
         "خواهشمندیم مطمئن شوید که حالت نمایشی در گزینه‌های برنامه‌نویسان را فعال کرده‌اید؛ "
         "زیرا تا زمانی که آن‌را فعال نکرده باشید کاشی برنامه به‌درستی کار نخواهد کرد."
     </string>
+    <string name="error_action_failure">مشکلی در تکمیل این کنش رخ داد!</string>
     <string name="error_root_access">دسترسی روت رد شد!</string>
 </resources>
