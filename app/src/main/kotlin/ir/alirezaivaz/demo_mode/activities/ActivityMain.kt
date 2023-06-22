@@ -71,7 +71,7 @@ class ActivityMain : AppCompatActivity() {
         if (action == Utils.MISSING_PERMISSION) {
             Snackbar.make(
                 binding.root,
-                R.string.permissions_need_to_be_granted,
+                R.string.warning_permissions_need_to_be_granted,
                 Snackbar.LENGTH_INDEFINITE
             ).apply {
                 setAction(R.string.action_ok) { dismiss() }
