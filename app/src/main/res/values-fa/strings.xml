@@ -5,6 +5,8 @@
     <string name="action_github">گیت‌هاب</string>
     <string name="action_open_developer">بازکردن گزینه‌های برنامه‌نویسان</string>
     <string name="action_grant_permission">اعطای دسترسی</string>
+    <string name="action_ok">باشه</string>
+    <string name="action_cancel">انصراف</string>
     <string name="permissions_title">دسترسی‌ها</string>
     <string name="permissions_description">
         "برای این‌که این برنامه به‌درستی کار کند به دسترسی‌های زیر نیاز داریم. از آن‌جا که این دسترسی‌ها بخشی‌از"
@@ -19,8 +21,6 @@
     <string name="permission_request_description">برای این‌که این برنامه کار کند نیاز دارد که دسترسی %1$s اعطا شود. متاسفانه اعطای این دسترسی تنها از طریق دستور adb shell در رایانه شما امکان‌پذیر است:\n\nadb -d shell pm grant %2$s %3$s</string>
     <string name="dump_permission_msg">برای کارکردن این برنامه به دسترسی DUMP نیاز دارد.شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.DUMP\n\nبرای شفافیت متن منبع این برنامه در دسترس است.</string>
     <string name="write_secure_settings_permission_msg">برای کارکردن این برنامه به دسترسی WRITE_SECURE_SETTINGS نیاز دارد. شوربختانه این تنها از طریق adb shell رایانهٔ شما امکان‌پذیر است:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.WRITE_SECURE_SETTINGS\n\nبرای شفافیت، متن منبع این برنامه در دسترس است.</string>
-    <string name="ok">باشه</string>
-    <string name="cancel">انصراف</string>
     <string name="dump_permission">DUMP</string>
     <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
     <string name="not_granted">اعطا نشده</string>

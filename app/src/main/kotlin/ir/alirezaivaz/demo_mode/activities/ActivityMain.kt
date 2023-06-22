@@ -74,7 +74,7 @@ class ActivityMain : AppCompatActivity() {
                 R.string.permissions_need_to_be_granted,
                 Snackbar.LENGTH_INDEFINITE
             ).apply {
-                setAction(R.string.ok) { dismiss() }
+                setAction(R.string.action_ok) { dismiss() }
                 show()
             }
         }
@@ -92,7 +92,7 @@ class ActivityMain : AppCompatActivity() {
                             Intent(Settings.ACTION_APPLICATION_DEVELOPMENT_SETTINGS)
                         )
                     }
-                    setNegativeButton(R.string.cancel, null)
+                    setNegativeButton(R.string.action_cancel, null)
                     show()
                 }
             }
@@ -163,7 +163,7 @@ class ActivityMain : AppCompatActivity() {
                     permission
                 )
             )
-            setPositiveButton(R.string.ok, null)
+            setPositiveButton(R.string.action_ok, null)
             show()
         }
     }

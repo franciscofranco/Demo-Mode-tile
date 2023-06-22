@@ -4,6 +4,8 @@
     <string name="action_github">GitHub</string>
     <string name="action_open_developer">Open developer options</string>
     <string name="action_grant_permission">Grant permission</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
     <string name="permissions_title">Permissions</string>
     <string name="permissions_description">
         "We need the following permissions for this app to work properly. Since these "
@@ -18,8 +20,6 @@
     <string name="permission_request_description">For this app to work, it needs %1$s permission to be granted. Unfortunately that is only possible through adb shell from your PC:\n\nadb -d shell pm grant %2$s %3$s</string>
     <string name="dump_permission_msg">For this app to work it needs DUMP permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.DUMP\n\nFor transparency this app\'s source code is available.</string>
     <string name="write_secure_settings_permission_msg">For this app to work it needs WRITE_SECURE_SETTINGS permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant ir.alirezaivaz.demo_mode android.permission.WRITE_SECURE_SETTINGS\n\nFor transparency this app\'s source code is available.</string>
-    <string name="ok">OK</string>
-    <string name="cancel">Cancel</string>
     <string name="dump_permission">DUMP</string>
     <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
     <string name="not_granted">Not granted</string>
