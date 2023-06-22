@@ -17,7 +17,7 @@ class ActivitySplash : AppCompatActivity() {
             startActivity(
                 Intent(
                     this@ActivitySplash,
-                    MainActivity::class.java
+                    ActivityMain::class.java
                 )
             )
             overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)

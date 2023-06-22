@@ -6,7 +6,7 @@ import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
 import com.franco.demomode.R
 import com.franco.demomode.Utils
-import com.franco.demomode.activities.MainActivity
+import com.franco.demomode.activities.ActivityMain
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlin.time.ExperimentalTime
@@ -44,7 +44,7 @@ class DemoModeTile : TileService() {
 
             when {
                 !hasDumpPermission || !hasWriteSecurePermission -> {
-                    Intent(applicationContext, MainActivity::class.java).apply {
+                    Intent(applicationContext, ActivityMain::class.java).apply {
                         action = Utils.MISSING_PERMISSION
                         flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                         startActivity(this)

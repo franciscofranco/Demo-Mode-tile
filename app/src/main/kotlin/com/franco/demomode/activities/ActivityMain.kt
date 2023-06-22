@@ -31,8 +31,8 @@ import java.io.IOException
 import kotlin.time.ExperimentalTime
 
 @ExperimentalTime
-class MainActivity : AppCompatActivity() {
-    private val mainActivity = this@MainActivity
+class ActivityMain : AppCompatActivity() {
+    private val activityMain = this@ActivityMain
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
 
@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.fab.initGitHubFab()
 
-        viewModel.isDumpPermissionUpdates(mainActivity)
-            .observe(mainActivity, ::renderDump)
-        viewModel.isWriteSecureSettingsPermissionUpdates(mainActivity)
-            .observe(mainActivity, ::renderWriteSecureSettings)
+        viewModel.isDumpPermissionUpdates(activityMain)
+            .observe(activityMain, ::renderDump)
+        viewModel.isWriteSecureSettingsPermissionUpdates(activityMain)
+            .observe(activityMain, ::renderWriteSecureSettings)
 
         binding.dumpGrant.setOnClickListener {
             showGrantPermissionDialog(
@@ -80,10 +80,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         lifecycleScope.launch {
-            val isDemoModeAllowed = Utils().isDemoModeAllowed(mainActivity)
+            val isDemoModeAllowed = Utils().isDemoModeAllowed(activityMain)
 
             if (!isDemoModeAllowed) {
-                MaterialAlertDialogBuilder(mainActivity)
+                MaterialAlertDialogBuilder(activityMain)
                     .setTitle(R.string.demo_mode_allowed_title)
                     .setMessage(R.string.demo_mode_allowed_message)
                     .setPositiveButton(R.string.ok) { _, _ ->
@@ -102,7 +102,7 @@ class MainActivity : AppCompatActivity() {
             with(binding) {
                 with(dumpStatus) {
                     setImageResource(ir.alirezaivaz.tablericons.R.drawable.ic_circle_check)
-                    imageTintList = ContextCompat.getColorStateList(mainActivity, R.color.green)
+                    imageTintList = ContextCompat.getColorStateList(activityMain, R.color.green)
                 }
                 dumpGrant.isVisible = false
                 dumpDescription.isVisible = false
@@ -112,7 +112,7 @@ class MainActivity : AppCompatActivity() {
             with(binding) {
                 with(dumpStatus) {
                     setImageResource(ir.alirezaivaz.tablericons.R.drawable.ic_progress_alert)
-                    imageTintList = ContextCompat.getColorStateList(mainActivity, R.color.orange)
+                    imageTintList = ContextCompat.getColorStateList(activityMain, R.color.orange)
                 }
                 dumpDivider.isVisible = true
                 dumpDescription.isVisible = true
@@ -126,7 +126,7 @@ class MainActivity : AppCompatActivity() {
             with(binding) {
                 with(writeStatus) {
                     setImageResource(ir.alirezaivaz.tablericons.R.drawable.ic_circle_check)
-                    imageTintList = ContextCompat.getColorStateList(mainActivity, R.color.green)
+                    imageTintList = ContextCompat.getColorStateList(activityMain, R.color.green)
                 }
                 writeGrant.isVisible = false
                 writeDescription.isVisible = false
@@ -136,7 +136,7 @@ class MainActivity : AppCompatActivity() {
             with(binding) {
                 with(writeStatus) {
                     setImageResource(ir.alirezaivaz.tablericons.R.drawable.ic_progress_alert)
-                    imageTintList = ContextCompat.getColorStateList(mainActivity, R.color.orange)
+                    imageTintList = ContextCompat.getColorStateList(activityMain, R.color.orange)
                 }
                 writeDivider.isVisible = true
                 writeDescription.isVisible = true
@@ -150,7 +150,7 @@ class MainActivity : AppCompatActivity() {
         @StringRes name: Int,
         permission: String
     ) {
-        MaterialAlertDialogBuilder(mainActivity).apply {
+        MaterialAlertDialogBuilder(activityMain).apply {
             setIcon(icon)
             setTitle(name)
             setMessage(
@@ -183,14 +183,14 @@ class MainActivity : AppCompatActivity() {
             su.outputStream.flush()
 //            su.waitFor()
             if (ContextCompat.checkSelfPermission(
-                    mainActivity,
+                    activityMain,
                     Manifest.permission.DUMP
                 ) == PackageManager.PERMISSION_GRANTED
             ) {
-                Toast.makeText(mainActivity, "dump settings granted", Toast.LENGTH_SHORT)
+                Toast.makeText(activityMain, "dump settings granted", Toast.LENGTH_SHORT)
                     .show()
             } else {
-                Toast.makeText(mainActivity, "dump settings denied", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activityMain, "dump settings denied", Toast.LENGTH_SHORT).show()
             }
 //            if (isWriteSecureSettingsPermissionGranted()) {
 //                Toast.makeText(mainActivity, "Write settings granted", Toast.LENGTH_SHORT).show()
@@ -210,14 +210,14 @@ class MainActivity : AppCompatActivity() {
             extend()
             smoothShrink()
             val params = CustomTabColorSchemeParams.Builder()
-                .setToolbarColor(ContextCompat.getColor(mainActivity, R.color.github))
+                .setToolbarColor(ContextCompat.getColor(activityMain, R.color.github))
                 .build()
             CustomTabsIntent.Builder()
                 .setDefaultColorSchemeParams(params)
                 .setShowTitle(true)
                 .build()
                 .launchUrl(
-                    mainActivity,
+                    activityMain,
                     Uri.parse("https://github.com/AlirezaIvaz/DemoModeTile")
                 )
         }
