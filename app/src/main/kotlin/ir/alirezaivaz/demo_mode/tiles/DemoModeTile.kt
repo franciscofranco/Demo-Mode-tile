@@ -4,7 +4,7 @@ import android.content.Intent
 import android.graphics.drawable.Icon
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import ir.alirezaivaz.demo_mode.R
+import ir.alirezaivaz.tablericons.R
 import ir.alirezaivaz.demo_mode.Utils
 import ir.alirezaivaz.demo_mode.activities.ActivityMain
 import kotlinx.coroutines.GlobalScope
@@ -27,8 +27,8 @@ class DemoModeTile : TileService() {
             }
 
             qsTile?.icon = when {
-                isDemoMode -> Icon.createWithResource(applicationContext, R.drawable.ic_on)
-                else -> Icon.createWithResource(applicationContext, R.drawable.ic_off)
+                isDemoMode -> Icon.createWithResource(applicationContext, R.drawable.ic_tilt_shift)
+                else -> Icon.createWithResource(applicationContext, R.drawable.ic_tilt_shift_off)
             }
 
             qsTile?.updateTile()
@@ -56,11 +56,11 @@ class DemoModeTile : TileService() {
                     qsTile?.apply {
                         if (state == Tile.STATE_ACTIVE) {
                             state = Tile.STATE_INACTIVE
-                            icon = Icon.createWithResource(applicationContext, R.drawable.ic_off)
+                            icon = Icon.createWithResource(applicationContext, R.drawable.ic_tilt_shift_off)
                             Utils().disableDemoMode(applicationContext)
                         } else {
                             state = Tile.STATE_ACTIVE
-                            icon = Icon.createWithResource(applicationContext, R.drawable.ic_on)
+                            icon = Icon.createWithResource(applicationContext, R.drawable.ic_tilt_shift)
                             Utils().enableDemoMode(applicationContext)
                         }
 
