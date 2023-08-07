@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">کاشی حالت نمایشی</string>
+    <string name="action_demo_mode">حالت نمایشی</string>
+    <string name="action_github">گیت‌هاب</string>
+    <string name="action_github_issues">ایشوها در گیت‌هاب</string>
+    <string name="action_github_profile">نمایهٔ گیت‌هاب</string>
+    <string name="action_share">هم‌رسانی</string>
+    <string name="action_share_chooser">هم‌رسانی با…</string>
+    <string name="action_rate">امتیاز به برنامه</string>
+    <string name="action_apps">برنامه‌های بیشتر</string>
+    <string name="action_open_developer">بازکردن گزینه‌های برنامه‌نویسان</string>
+    <string name="action_grant_permission">اعطای دسترسی</string>
+    <string name="action_grant_root">اعطا با روت</string>
+    <string name="action_ok">باشه</string>
+    <string name="action_cancel">انصراف</string>
+    <string name="permissions_title">دسترسی‌ها</string>
+    <string name="permissions_description">
+        "برای این‌که این برنامه به‌درستی کار کند به دسترسی‌های زیر نیاز داریم. از آن‌جا که این دسترسی‌ها بخشی‌از"
+        "دسترسی‌های محافظت‌شده هستند، برای اعطای آن‌ها به برنامه باید از فرمان adb shell در رایانه شخصی "
+        "یا از ترمینال با دسترسی روت استفاده کنید."
+    </string>
+    <string name="permission_dump">دسترسی به گزارش دامپ سامانه</string>
+    <string name="permission_dump_description">برای شناسایی و تنظیم درست وضعیت کاشی تنظیمات سریع به این دسترسی نیاز داریم.</string>
+    <string name="permission_write_secure_settings">نوشتن تنظیمات امن سامانه</string>
+    <string name="permission_write_secure_settings_description">برای تغییر تنظیمات حالت نمایشی به این دسترسی نیاز داریم.</string>
+    <string name="permission_request_title">درخواست دسترسی کاشی حالت نمایشی</string>
+    <string name="permission_request_description">
+        "برای این‌که این برنامه کار کند نیاز دارد که دسترسی %1$s اعطا شود. متاسفانه اعطای این دسترسی "
+        "تنها از طریق دستور adb shell در رایانه شما امکان‌پذیر است:\n\n"
+        "adb -d shell pm grant %2$s %3$s\n\n"
+        "هم‌چنین اگر دسترسی روت دارید، می‌توانید با کلیک روی دکمه «اعطا با روت» این دسترسی را به‌صورت "
+        "خودکار به برنامه اعطا کنید."
+    </string>
+    <string name="warning_permissions_need_to_be_granted">برای این‌که کاشی کار کند باید هر دو دسترسی داده شود!</string>
+    <string name="warning_demo_mode_allowed_title">حالت نمایشی مجاز نیست!</string>
+    <string name="warning_demo_mode_allowed_message">
+        "خواهشمندیم مطمئن شوید که حالت نمایشی در گزینه‌های برنامه‌نویسان را فعال کرده‌اید؛ "
+        "زیرا تا زمانی که آن‌را فعال نکرده باشید کاشی برنامه به‌درستی کار نخواهد کرد."
+    </string>
+    <string name="error_action_failure">مشکلی در تکمیل این کنش رخ داد!</string>
+    <string name="error_root_access">دسترسی روت رد شد!</string>
+</resources>

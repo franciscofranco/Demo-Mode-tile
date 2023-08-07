@@ -1,18 +1,42 @@
 <resources>
     <string name="app_name">Demo Mode tile</string>
-    <string name="demo_mode">Demo mode</string>
-    <string name="permission_request_title">Demo mode tile permission request</string>
-    <string name="dump_permission_msg">For this app to work it needs DUMP permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.DUMP\n\nFor transparency this app\'s source code is available.</string>
-    <string name="write_secure_settings_permission_msg">For this app to work it needs WRITE_SECURE_SETTINGS permission to be granted. Unfortunately that is only possible through adb shell from your computer:\n\nadb -d shell pm grant com.franco.demomode android.permission.WRITE_SECURE_SETTINGS\n\nFor transparency this app\'s source code is available.</string>
-    <string name="ok">OK</string>
-    <string name="dump_permission">DUMP</string>
-    <string name="write_secure_settings_permission">WRITE_SECURE_SETTINGS</string>
-    <string name="not_granted">Not granted</string>
-    <string name="permissions">Permissions</string>
-    <string name="granted">Granted</string>
-    <string name="social">Follow me</string>
-    <string name="source_code_title">Source code</string>
-    <string name="permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
-    <string name="demo_mode_allowed_title">Tip!</string>
-    <string name="demo_mode_allowed_message">Make sure you allow demo mode to run by enabling it on Android settings, otherwise this tile might not work</string>
+    <string name="action_demo_mode">Demo mode</string>
+    <string name="action_github">GitHub</string>
+    <string name="action_github_issues">GitHub issues</string>
+    <string name="action_github_profile">GitHub profile</string>
+    <string name="action_share">Share</string>
+    <string name="action_share_chooser">Share via…</string>
+    <string name="action_rate">Rate</string>
+    <string name="action_apps">More apps</string>
+    <string name="action_open_developer">Open developer options</string>
+    <string name="action_grant_permission">Grant permission</string>
+    <string name="action_grant_root">Grant with root</string>
+    <string name="action_ok">OK</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="permissions_title">Permissions</string>
+    <string name="permissions_description">
+        "We need the following permissions for this app to work properly. Since these "
+        "permissions are among the protected permissions, to grant them to the app you "
+        "need to use the adb shell command on the PC or from the terminal with root access."
+    </string>
+    <string name="permission_dump">Access to system dump report</string>
+    <string name="permission_dump_description">We need this permission to identify and set the status of the tile correctly.</string>
+    <string name="permission_write_secure_settings">Write secure settings</string>
+    <string name="permission_write_secure_settings_description">We need this permission to change demo mode settings.</string>
+    <string name="permission_request_title">@string/app_name</string>
+    <string name="permission_request_description">
+        "For this app to work, it needs %1$s permission to be granted. "
+        "Unfortunately that is only possible through adb shell from your PC:\n\n"
+        "adb -d shell pm grant %2$s %3$s\n\n"
+        "Also if you've root access, you can grant it automatically by "
+        "clicking on the 'Grant with root' button at below"
+    </string>
+    <string name="warning_permissions_need_to_be_granted">Both permissions need to be granted for the tile to work</string>
+    <string name="warning_demo_mode_allowed_title">Demo mode not allowed!</string>
+    <string name="warning_demo_mode_allowed_message">
+        "Please make sure you're turned on demo mode in developer options; "
+        "Because the tile won't works properly until you turned it on!"
+    </string>
+    <string name="error_action_failure">Failed to complete this action!</string>
+    <string name="error_root_access">Root access denied!</string>
 </resources>

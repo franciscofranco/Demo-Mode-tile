@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.franco.demomode">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission
         android:name="android.permission.DUMP"
@@ -11,23 +10,37 @@
         tools:ignore="ProtectedPermissions" />
 
     <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:localeConfig="@xml/locales_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/DemoModeTheme">
+        android:theme="@style/Theme.DemoModeTile"
+        tools:targetApi="tiramisu">
 
-        <activity android:name=".activities.MainActivity">
+        <activity
+            android:name=".activities.ActivitySplash"
+            android:exported="true"
+            android:theme="@style/Theme.DemoModeTile.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.ActivityMain"
+            android:exported="false" />
+
         <service
-            android:name="com.franco.demomode.tiles.DemoModeTile"
-            android:icon="@drawable/ic_off"
-            android:label="@string/demo_mode"
+            android:name=".tiles.DemoModeTile"
+            android:exported="true"
+            android:icon="@drawable/ic_tilt_shift_off"
+            android:label="@string/action_demo_mode"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
